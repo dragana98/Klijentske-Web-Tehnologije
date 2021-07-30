@@ -1,0 +1,534 @@
+body{
+    margin: 0;
+    background: rgb(23, 0, 32) no-repeat 50% 0;
+    color:white;
+    font-family:  Arial, Helvetica, sans-serif;
+}
+html,body{
+    scroll-behavior: smooth;
+}
+
+#logo{
+    width: 17%;
+    position: relative; 
+    top:-50px;
+    left: 44px;
+}
+/* Pretraga filmova */
+/* polje */
+#input1{
+    width: 270px;
+    position: absolute; 
+    top: 82px; 
+    left: 500px; 
+    height: 27px; 
+    background-color: rgb(54, 2, 65); 
+    border: 2px solid rgb(155, 42, 170);
+    color:whitesmoke;
+    font-size: 20px;
+    border-radius: 5px;
+}
+/* padajuci meni */
+#pretraga1{
+    display: none;
+    position: absolute;
+    background-color: rgb(156, 106, 154);
+    left: 500px;
+    top:100px;
+    width: 14%;
+    padding:5px;
+    z-index: 9;
+    list-style-type: none;
+    border-bottom: 1px solid rgb(83, 0, 83);
+    max-height: 170px;
+    overflow: auto;
+}
+#pretraga1 li{
+    display: block;
+    padding: 10px;
+}
+#pretraga1 li:hover{
+    background-color: rgb(140, 67, 150); /*ISTO*/
+    padding:10px;
+}
+#pretraga1 li:not(:last-child){
+    border-bottom: 2px solid rgb(83, 0, 83);
+}
+#pretraga1 li a{
+    text-decoration: none;
+    color: white;
+    padding:10px;
+}
+#pretraga1 li a:hover{
+    
+    background-color: rgb(140, 67, 150);/*ISTO*/
+    padding:10px;
+}
+
+/* navigacija */
+
+#nav ul{
+
+    list-style-type: none;
+    padding: 20px;
+}
+#nav ul li{
+    padding:11px;
+    display: inline;
+}
+
+#nav ul li a{
+    text-decoration: none;
+    padding: 12px;
+    color: white;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative; /* priprema za hover */ 
+}
+#nav ul li a::after{
+    content: '';
+    height: 2.5px;
+    width: 0;
+    background: rgb(234, 73, 255);
+    position:absolute;
+    bottom: 0;
+    left:0;
+    transition: width 0.3s;
+}
+#nav ul li a:hover::after{
+    width: 100%;
+}
+/* crtica pored nalog-a */
+#nav ul li:last-child{
+    border-left: 1px solid gray;
+}
+#nav{
+    float: right;
+    margin: 50px 40px;
+    /* za sticky meni */
+    position: sticky;
+    transition: 0.5s;
+    top:0;
+    z-index: 10;
+}
+/*  JQUERY MENU class=BLACK  */
+nav.black{
+    background-color: rgba(84, 0, 110, 0.95);
+    
+    position: relative;
+    width: 75%;
+    right: 238px;
+    padding: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius:10px;
+}
+#nav.black ul li a{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative; /* priprema za hover */ 
+}
+#nav.black ul li{
+    padding:5px;
+    display: inline;
+    margin: 0 60px;
+}
+#nav.black img{
+    width:60px;
+    display: '';
+}
+/*  end of menu/navigacija */
+.nalog{
+    color: rgb(209, 90, 193);
+}
+
+/*             slider za tekst             */
+#text-horizontal{
+    overflow: hidden;
+    position:relative;
+    width: 50%;
+    height: 20px;
+    top:-125px;
+    padding: 2px;
+   /* background-color: tomato;*/
+    margin: auto;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    box-shadow: gray;
+}
+
+#text-horizontal p{
+    position :absolute;
+    width:215%; 
+    height: 100%;
+    padding:0px;
+    margin:0;
+    text-align: center;
+    line-height: 19px;
+    color: white;
+    font-size: 18px;
+    font-family:  Arial, Helvetica, sans-serif;
+    transform: translateX(100%);
+    animation: scrolling 40s linear infinite;
+ }
+ @keyframes scrolling {
+     0%{
+         transform: translateX(30%);
+     }
+     
+     100%{
+         transform: translateX(-100%);
+     }
+ }
+/*            baner za naslovne slike       */ 
+
+#banner{ 
+    position: relative;
+    top:-110px;
+    margin:auto;
+    height: 500px;
+    /*background-image: linear-gradient(rgb(43, 43, 43) 60%,rgb(20, 20, 20) ,black);
+   */
+    width: 65%;
+    background-image: linear-gradient(rgb(59, 3, 82) 58%,  rgb(34, 0, 49) ,  rgb(23, 0, 32));
+    
+    overflow: hidden;
+    padding: 0;
+}
+figure{
+    width: 3700px;
+    position:relative;
+    padding:0;
+    height: 500px;
+    animation:pdslider 20s linear infinite;
+}  
+@keyframes pdslider  {
+    0%{left:0; top:0;}
+    23%{left:0; top:0;}
+    25%{left:-1200px; top:0;}
+    48%{left:-1200px; top:0;}
+    50%{left:-2500px; top:0;}
+    73%{left:-2500px; top:0;}
+    75%{left:-1200px; top:0;}
+    98%{left:-1200px; top:0;}
+    100%{left:0; top:0;}
+    
+}
+/*     rezervacija karata      */ 
+
+#rezervisi{  
+    margin: auto;
+    padding: 5px;
+    /*background-color: green;*/ 
+    width: 40%;
+    position:relative;
+    top:-90px;
+}
+#rezervisi p{
+    font-weight: bold ;
+    font-size: 25px;
+    font-family:  'Arial';
+    letter-spacing: 2px;
+}
+#dugme{
+    position: absolute;
+    left:440px;
+    bottom: 50px;    
+
+    border: 3px solid rgb(220, 83, 224);
+    border-radius: 10px;
+    background-color: rgb(59, 0, 59);
+    padding: 10px 0px;
+    font-size: 25px;
+
+    transition:1.5s;
+}
+#dugme a{
+    color:white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+#dugme a:hover{
+    box-shadow:0 0 20px 0 rgb(202, 26, 255) ,
+    0 0 20px 0 rgb(202, 26, 255) ,
+    0 0 40px 0 rgb(202, 26, 255) ;
+    background-color: rgb(202, 26, 255) ;
+    padding: 10px 20px;
+}
+
+/* danasnji datum */
+
+#datum{
+    color: white;
+}
+
+/*    POD-MENI   za FILMOVI  */
+.sub1{
+    display:none;
+}
+#nav .sub1 ul li a{
+    font-size: 15px;
+    position: initial; /* za iskljucenje tranzicije*/
+    padding: 10px 25px;  /* ISTO */
+}
+#nav .sub1 ul li a::after{ /* iskljucena tranzicija*/
+
+    transition: none;
+    width: 0;
+}
+#nav .sub1 ul li:last-child{
+    border-left:0;
+}
+#nav .sub1 ul li a:hover{
+    background: rgb(200, 71, 218);
+    color: white;
+    border-radius: 6px;
+    padding: 10px 25px; /* ISTO */
+}
+#nav ul li:hover .sub1 {
+    background: rgb(38, 9, 68);
+    position: absolute;
+    display: block;
+    
+    border-bottom-left-radius: 7px ;
+    border-bottom-right-radius:7px ;
+
+    margin: 10px 0; 
+}
+
+
+/************ sekcija 2 *************/
+
+#sekcije{
+    width: 80%;
+    margin: auto;
+}
+
+#top h1{
+    border-left: 2px solid gray;
+    padding: 5px;
+}
+
+#uskoro h1{
+    border-left: 2px solid gray;
+    padding: 5px;
+}
+#novosti h1{
+    border-left: 2px solid gray;
+    padding: 5px;
+}
+
+#dogadjaji h1{
+    border-left: 2px solid gray;
+    padding: 5px;
+}
+
+/*  TOP */
+#top{
+    margin: auto auto 60px auto; /*background-color: gray;*/
+}
+#grupa-slika{
+    margin: auto;
+    width: 90%;
+    padding: 0px;
+    text-align: center; 
+    /*background-color: white;*/
+}
+.col1{
+    width: 22%;
+    float: left;
+    
+    background-color: rgb(43, 19, 53);
+    border: 9px solid rgb(167, 73, 185);
+    border-radius: 10px;
+    
+    height: 430px;
+    margin: 2px 11px;
+}
+#sekcije #top #grupa-slika .col1 img{
+    margin: 15px 0;
+}
+.t1{
+    color: rgb(232, 174, 243);
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+/*  NOVOSTI   */
+
+#novosti{
+   margin-bottom: 60px;
+}
+#app-slika{
+    margin: auto;
+    width: 95%;
+
+    padding: 10px;
+    display: flex;
+}
+.tekst1{
+    width: 46%;
+    padding: 40px;
+    margin-left: 40px ;
+    border-left: 3px solid rgb(167, 73, 185); 
+    color: rgb(172, 148, 189); 
+    font-weight: bolder; 
+}
+#span2{
+    color: rgb(220, 191, 223);
+}
+/* USKORO      */
+
+#grupa-slika-uskoro{
+    margin: 40px auto 70px auto;
+    width: 100%;
+    padding: 0px;
+    text-align: center; 
+    /*background-color: white;*/
+   
+}
+
+.col2{
+    width: 14%;
+    float: left;
+    
+    background-color: rgb(43, 19, 53);
+    border: 3px solid rgb(167, 73, 185);
+    border-radius: 10px;
+    
+    height: 260px;
+    margin: 2px 11px;
+  
+}
+#sekcije #uskoro #grupa-slika-uskoro img{
+    margin-top: 20px;
+}
+
+/* DOGADJAJI */
+
+#lista-dogadjaja{
+    
+    width: 95%;
+    padding: 5px;
+
+   margin: 50px 2px 100px 24px;
+
+   height: 340px;
+   border:0.2px solid rgb(215, 128, 226);
+ /*  box-shadow: 0 0 10px 10px rgb(151, 81, 151);
+*/ box-shadow: 0 0 40px  rgb(151, 81, 151);
+
+}
+.col3{
+    width: 90%;
+    display: flex;
+    margin:5px auto 19px auto;
+}
+
+.t2{
+    padding: 60px;
+    color: rgb(222, 187, 230);
+}
+
+/* CLANSTVO */
+
+#clanstvo-1{
+    width: 95%;
+    margin: 60px auto 20px;
+    font-size: 20px;
+
+}
+#par1{
+    position: relative;
+    top: -220px;
+    width: 55%;
+    left: 550px;
+    background-color: rgb(86, 14, 95);
+    border-radius: 10px;
+    padding: 18px;
+}
+#mt1{
+    color: rgb(255, 158, 174);
+}
+#mt2{
+    color:rgb(58, 183, 255);
+}
+
+/* footer */ 
+
+#footer{
+    height: 600px;
+    margin:0;
+    background-color: rgb(18, 10, 19);
+    border-top:2px solid rgb(55, 15, 92);
+    color: gray;
+    box-shadow: inset 0 5px 30px  rgb(19, 3, 22);
+}
+#info{
+    width: 95%;
+    margin: auto;
+}
+#footer-1{
+    margin: 90px auto;
+    width: 70%;
+    
+    text-align: center;
+    border-bottom: 1px solid rgb(46, 46, 46);
+    padding-bottom: 30px;
+
+}
+.col4{
+    width: 24%;
+    float:left;
+}
+
+#footer-2{
+    margin:  auto;
+    width: 70%;
+    
+    text-align: center;
+}
+#footer-2 div{
+    margin: auto;  
+    width: 30%;
+    display: flex;
+}
+#footer-2 div p{
+    width: 33%;
+    padding: 2px;
+}
+#footer-2 div p a{
+    text-decoration: none;
+    color: gray;
+}
+#footer-3{
+    margin: 30px auto;
+    width: 30%;
+    text-align: center;
+}
+
+/* DUGME */
+
+#button1{
+    width: 60px;
+    height: 58px;
+    background-color: rgb(168, 49, 162);
+    position: relative;
+    left: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgb(39, 0, 39);
+}
+#button2{
+    padding: 10px;
+}
+#button2:hover{
+    padding: 19px;
+   
+}
+#button1:hover{
+    box-shadow: 0 0 10px 10px rgb(204, 31, 204);
+
+}

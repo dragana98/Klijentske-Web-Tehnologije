@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Movie Time | Tickets</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tickets Reservation">
+    <meta name="keywords" content="Cinema, Film, Theatre">
+    <meta name="author" content="Dragana Andjelkovic">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="tickets_icon_gQo_icon.ico" />
+    <link rel="stylesheet" type="text/css" href="stil.css">
+    <link rel="stylesheet" type="text/css" href="css/film.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+    <script type="text/javascript">
+        $(window).on('scroll',function(){
+            if($(window).scrollTop()){
+                $('nav').addClass('black');
+            }
+            else{
+                $('nav').removeClass('black');
+            }
+        });
+    </script>
+</head>
+<!--Obavezan redosled funkcija-->
+<body onload="loadOpisXML();loadFilmsXML();"> 
+    <a href="film-pocetna.html">
+        <img id="logo-film" src="images/logo111.png">
+    </a>
+
+    <input id="input1" type="text" placeholder="&#x1F50D; Pretraga filmova" onkeyup="pretrazi()">
+    <ul id="pretraga1">
+    </ul>
+   
+
+    <nav id="nav">
+        <ul>
+            <li><a href="film-pocetna.html">&#x2190; &nbsp;NAZAD</a></li>
+            <li><a href="#uskoro">USKORO</a></li>
+            <li><a href="#novosti">NOVOSTI</a></li>
+            <li><a href="#dogadjaji">DOGAĐAJI</a></li>       
+            <li><a href="nalog.html"><span class="nalog">Nalog</span></a></li>
+        </ul>
+    </nav>
+
+
+    <div id="sekcije">
+        <h1>REPERTOAR</h1>
+        <div id="sekcija1">
+            
+            <div id="navigacija">
+                <div id="prvi" class="col11">
+                    <input id="unos1" type="text" placeholder="Pretrazi filmove" onkeyup="unesiTabelu()">
+                </div>
+
+                <div id="drugi" class="col11">
+                   <b>Žanr:</b>&nbsp;
+                    <select id="select1" onchange="unesiTabelu()">
+                    </select>
+                </div>
+
+                <div id="treci" class="col11">
+                    <b>Jezik:</b>&nbsp;
+                    <select id="select2" onchange="unesiTabelu()">
+                        <option value="svi">svi</option>
+                        <option value="srp">Srpski</option>
+                        <option value="eng">Engleski</option>
+                    </select>
+                </div>
+
+                <div id="cetvrti" class="col11">
+                    <b>Uskoro stiže:</b>&nbsp;
+                    <input type="checkbox" id="unos2" onchange="unesiTabelu()">
+                </div>
+            </div>
+
+
+            <table id="tabela">
+            </table>
+
+            
+            <div id="prikazfilma" style="display: none;"> 
+                
+                <button id="nazad" onclick="nazad()">&#x2190; NAZAD</button>
+                <h1 id="imefilma"></h1> 
+
+                <div id="slikaitekst">
+                    <img id="slika1" src="" style="width: 220px;">
+                    <div id="tekstinaslov">
+                        <h3 id="naslov"></h3>
+                        <p id="paragraf1">
+                        </p>
+                        <p id="jezik"></p>
+                        <p id="titl"></p>
+                        <p id="trajanje"></p>
+                    </div>
+                </div>
+                
+                <button id="dugmerezervacija">Kupi karte</button>
+           
+            </div>
+            
+        </div>
+
+        <!--DEO MENIJA-->
+
+        <div id="novosti">
+            <h1>NOVOSTI</h1>
+            <div id="app-slika">
+                <img src="images/app.jpg" style="width: 640px; margin-left: 40px;">
+                <div class="tekst1">
+                  <span id="span2"> Predstavljamo vam novu MovieTime aplikaciju!</span> <br><br>
+                    Šta je novo? <br>Online kupovina platnim karticama. <br>
+                    Online dopuna Cineplexx bonus kartice. <br><br>
+                    Šta možete da očekujete? <br>
+                    Bioskopski program i informacije - Kompletan repertoar svih bioskopa na dohvat ruke, 
+                    uključujući i informacije o filmovima
+                    Dobijajte push notifikacije za super promocije i događaje
+                    Podelite svoje iskustvo u bioskopu sa prijateljima, ako želite! <br> <br>
+                    Nova MovieTime aplikacija dostupna je u sledećim prodavnicama: App Store ,
+                    Huawei App Gallery i Google Play Store. <br><br> 
+                    Za iOS uređaje, aplikacija je dostupna za Serbia, US i UK region. <div id="here-uskoro"></div>                  
+                </div>
+            </div>
+        </div>
+
+        <div id="uskoro">
+            <h1>USKORO U BIOSKOPU</h1>
+            <div id="grupa-slika-uskoro">
+
+                <div class="col2" style="margin-left: 40px;">
+                    <img src="filmovi/lordooftherings.jpg"  style="width: 68%;">
+                </div>
+
+                <div class="col2">
+                    <img src="filmovi/kum2.jpg"  style="width: 70%;">  
+                </div>
+
+                <div class="col2">
+                    <img src="filmovi/maleficent.jpg"  style="width: 69%;">
+                </div>
+
+                <div class="col2">
+                    <img src="filmovi/her.jpg"  style="width: 68%; height:220px ">   
+                </div>
+               
+                <div class="col2">
+                    <img src="filmovi/haripoter_goblet.jpg"  style="width: 68%;height:220px ">
+                </div>
+               
+                <div class="col2">
+                    <img src="filmovi/starisbron.png"  style="width: 68%;">
+                </div>
+
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+
+        <div id="dogadjaji">
+            <h1>DOGAĐAJI</h1>
+            <div id="lista-dogadjaja" style="overflow: auto;">
+
+                <div class="col3">
+                    <img src="images/dogadjaji/dogadjaj1.jpg">
+                    <div class="t2">
+                        Od sada će članovi našeg bonus kluba moći da uživaju u sjajnim menijima, 
+                        osmišljenim po njihovom ukusu uz specijalnu sniženu cenu.<br>
+                        Kokice ili naćos? <br>
+                        Slobodno izaberi onaj po tvojoj meri, jer te očekuje meni koji sadrži velike kokice i točeno piće*<br><br>
+                        od 0,75l po ceni od 390 dinara ili Naćos meni koji sadrži drugu omiljenu bioskopsku grickalicu, naćos,
+                         dva sosa po izboru i točeno piće <br><br>
+                        od 0,75l i to po ceni od 450 dinara!<br>
+                    </div>
+                </div>
+
+                <div class="col3">
+                    <img src="images/dogadjaji/dogadjaj2.jpg">
+                    <div class="t2">
+                        Bioskopsko uživanje je nezamenljivo,
+                         svakako. Kad si sprečen da dođeš u MovieTime Niš bioskop, a gleda ti se film, dostavljamo ti 
+                         omiljene grickalice na kućnu adresu. Kokice i onaj super slani naćos čips sa dva ili tri sosa koji te odmah 
+                         prebace u udobnu bioskopsku salu.<br>
+                         MovieTime kokice, naćos i točeno piće su od sada dostupni za poručivanje preko MigMig-a u Nišu.
+                         I koji film gledamo večeras?<br><br><br><br><br>
+                         <a href="#" style="color:violet">Poruči ovde!</a>
+                    </div>
+                </div>
+
+                <div class="col3">
+                    <img src="images/dogadjaji/dogadjaj3.jpg">
+                    <div class="t2">
+                        Sjajna vest za članove Cineplexx bonus kluba! Pored brojnih pogodnosti
+                        koje ti donosi članstvo, kao što je sakupljanje bodova za kupovinu ulaznica, hrane i pića koje možeš
+                        zameniti za atraktivne nagrade tu je još jedna fantastična ponuda.
+                        Uplatom od minimum 2.000 dinara na tvoju Cineplexx bonus karticu, ona vredi još više svakog četvrtka u Cineplexx bioskopima, 
+                        jer plaćanjem 
+                        sredstvima sa svoje bonus kartice ostvaruješ popust na ulaznice. Uživaj u omiljenim filmovima po sniženoj ceni karte.
+                        Prilikom uplate od najmanje 2.000 dinara na svoju Cineplexx bonus karticu,
+                        možeš ostvariti i još pogodnosti:<br><br>
+
+                        - preuzimanje rezervisanih bioskopskih ulaznica do 10 minuta pre početka projekcije (umesto uobičajenih 30 minuta)<br>
+                        - atraktivne nagrade u zamenu za bodove<br>
+                        - bezgotovinsko plaćanje na blagajni bioskopa
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    <!--Dugme za povratak na pocetak strane-->
+    <div id="button1"><a id="button2" href="#logo-film" style="text-decoration: none;font-size: 43px; color: whitesmoke;">&#x2191;</a></div>
+    </div>
+
+    <div id="footer">
+            <div id="info">
+                <div id="footer-1">
+                    <div class="col4">
+                        <h4>FILMOVI</h4>
+                        <p>U bioskopu</p>
+                        <p>Uskoro</p>
+                        <p>Top filmovi</p>
+                    </div>
+                    <div class="col4">
+                        <h4>DOGAĐAJI</h4>
+                        <p>Akcije</p>
+                        <p>Događaji</p>
+                        <p>Ladies night</p>
+                        <p>Parties</p>
+                    </div>
+                    <div class="col4">
+                        <h4>ČLANSTVO</h4>
+                        <p>Učlanjenje</p>
+                        <p>Bonus kartice</p>
+                        <p>Popusti</p>
+                    </div>
+                    <div class="col4">
+                        <h4>KONTAKT</h4>
+                        <P>Kontaktiraj nas</P>
+                        <p>Lokacije</p>
+                        <p>Mail</p>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+             
+
+                <div id="footer-2">
+                    <h3>Pratite nas na:</h3>
+                    <div>
+                        <p><a href="https://www.facebook.com/" target="_blank">Facebook</a></p>
+                        <p><a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
+                        <p><a href="https://www.youtube.com/"  target="_blank">YouTube</a></p>
+                    </div>
+                </div>
+
+                <div id="footer-3">
+                 Copyright &copy; 2021 DraganaAndjelkovic. All rights reserved.
+                </div>
+
+            </div>
+    </div>
+
+    <script src="javascripts/loadxml-film.js"></script> 
+
+</body>
+</html>

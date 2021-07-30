@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LOGIN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NALOG>
+		<USERNAME>dragana</USERNAME>
+		<PASSWORD>12</PASSWORD>
+		<IME>Dragana</IME>
+		<PREZIME>Andjelkovic</PREZIME>
+		<REZERVACIJE>16</REZERVACIJE>
+		<KARTICA>323 324 457 536</KARTICA>
+		<EXP>11/21</EXP>
+	</NALOG>
+	<NALOG>
+		<USERNAME>user</USERNAME>
+		<PASSWORD> </PASSWORD>
+		<IME>Dragana</IME>
+		<PREZIME>Andjelkovic</PREZIME>
+		<REZERVACIJE>3</REZERVACIJE>
+		<KARTICA>328 284 283 284</KARTICA>
+		<EXP>6/22</EXP>
+	</NALOG>
+	
+</LOGIN>

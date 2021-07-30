@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Movie Time | Tickets</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tickets Reservation">
+    <meta name="keywords" content="Cinema, Film, Theatre">
+    <meta name="author" content="Dragana Andjelkovic">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="tickets_icon_gQo_icon.ico" />
+    <link rel="stylesheet" type="text/css" href="stil.css">
+    <link rel="stylesheet" type="text/css" href="css/film.css">
+    <link rel="stylesheet" type="text/css" href="css/nalog-css.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+    <script type="text/javascript">
+        $(window).on('scroll',function(){
+            if($(window).scrollTop()){
+                $('nav').addClass('black2');
+            }
+            else{
+                $('nav').removeClass('black2');
+            }
+        });
+    </script>
+
+</head>
+
+<body onload="loadLoginXML();"> 
+
+    <a href="film-pocetna.html">
+        <img id="logo-film" src="images/logo111.png">
+    </a>
+   
+    <h1 id="naslov-nalog">NALOG</h1>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="film-pocetna.html">&#x2190; &nbsp;NAZAD</a></li>
+            <li><a href="#dogadjaji">PREPORUKA</a></li>       
+            <li><a href=""><span class="nalog">&#128722;</span></a></li>
+        </ul>
+    </nav>
+
+    <!--display:""-->
+    <div id="sekcija-duzina">
+        <div id="sekcija11">
+            <h2 class="login">Login</h2>
+            <br>
+            <br>
+            <label for="username" style="font-size: 25px;  color:rgb(223, 223, 223);">Username:</label> &nbsp;
+            <input id="inp1" type="text" name="username" placeholder="user">
+            <br>
+            <br>
+            <br>
+            <label for="password" style="font-size: 25px;  color:rgb(223, 223, 223);">Password:</label> &nbsp;
+            <input id="inp2" type="password" name="password" placeholder="password">
+            <br>
+            <br>
+            <input id="dugme-validacija" type="submit" onclick="validacija()">
+        </div>
+    </div>
+
+
+    <div id="sekcije">
+
+        <!--display:"none"-->
+        <div style="min-height: 65vh; display: none;" id="sekcija22" >
+
+            <div id="acc">
+                <img style="width:200px; margin: 65px; border: 2px solid purple;" src="images/account.png">    
+                <div id="ime-prezime">
+                    <p id="ime-acc"></p>
+                    <p id="prezime-acc"></p>
+                </div>
+                <div id="kartica">
+                    <p id="rezervacije-acc"></p>
+                    <br>
+                    <p id="broj">ew</p>
+                    <p id="exp">vgre</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="dogadjaji" style="position:relative; top:90px;">
+            <h1>Preporuka</h1>
+            <div id="lista-dogadjaja" style="overflow: auto;">
+
+                <div class="col3">
+                    <img src="images/dogadjaji/dogadjaj1.jpg">
+                    <div class="t2">
+                        Od sada će članovi našeg bonus kluba moći da uživaju u sjajnim menijima, 
+                        osmišljenim po njihovom ukusu uz specijalnu sniženu cenu.<br>
+                        Kokice ili naćos? <br>
+                        Slobodno izaberi onaj po tvojoj meri, jer te očekuje meni koji sadrži velike kokice i točeno piće*<br><br>
+                        od 0,75l po ceni od 390 dinara ili Naćos meni koji sadrži drugu omiljenu bioskopsku grickalicu, naćos,
+                         dva sosa po izboru i točeno piće <br><br>
+                        od 0,75l i to po ceni od 450 dinara!<br>
+                    </div>
+                </div>
+
+                <div class="col3">
+                    <img src="images/dogadjaji/dogadjaj2.jpg">
+                    <div class="t2">
+                        Bioskopsko uživanje je nezamenljivo,
+                         svakako. Kad si sprečen da dođeš u MovieTime Niš bioskop, a gleda ti se film, dostavljamo ti 
+                         omiljene grickalice na kućnu adresu. Kokice i onaj super slani naćos čips sa dva ili tri sosa koji te odmah 
+                         prebace u udobnu bioskopsku salu.<br>
+                         MovieTime kokice, naćos i točeno piće su od sada dostupni za poručivanje preko MigMig-a u Nišu.
+                         I koji film gledamo večeras?<br><br><br><br><br>
+                         <a href="#" style="color:violet">Poruči ovde!</a>
+                    </div>
+                </div>
+
+                <div class="col3">
+                    <img src="images/dogadjaji/dogadjaj3.jpg">
+                    <div class="t2">
+                        Sjajna vest za članove Cineplexx bonus kluba! Pored brojnih pogodnosti
+                        koje ti donosi članstvo, kao što je sakupljanje bodova za kupovinu ulaznica, hrane i pića koje možeš
+                        zameniti za atraktivne nagrade tu je još jedna fantastična ponuda.
+                        Uplatom od minimum 2.000 dinara na tvoju Cineplexx bonus karticu, ona vredi još više svakog četvrtka u Cineplexx bioskopima, 
+                        jer plaćanjem 
+                        sredstvima sa svoje bonus kartice ostvaruješ popust na ulaznice. Uživaj u omiljenim filmovima po sniženoj ceni karte.
+                        Prilikom uplate od najmanje 2.000 dinara na svoju Cineplexx bonus karticu,
+                        možeš ostvariti i još pogodnosti:<br><br>
+
+                        - preuzimanje rezervisanih bioskopskih ulaznica do 10 minuta pre početka projekcije (umesto uobičajenih 30 minuta)<br>
+                        - atraktivne nagrade u zamenu za bodove<br>
+                        - bezgotovinsko plaćanje na blagajni bioskopa
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    <div id="button1"><a id="button2" href="#logo-film" style="text-decoration: none;font-size: 43px; color: whitesmoke;">&#x2191;</a></div>
+    </div>
+
+    <div id="footer">
+            <div id="info">
+                <div id="footer-1">
+                    <div class="col4">
+                        <h4>FILMOVI</h4>
+                        <p>U bioskopu</p>
+                        <p>Uskoro</p>
+                        <p>Top filmovi</p>
+                    </div>
+                    <div class="col4">
+                        <h4>DOGAĐAJI</h4>
+                        <p>Akcije</p>
+                        <p>Događaji</p>
+                        <p>Ladies night</p>
+                        <p>Parties</p>
+                    </div>
+                    <div class="col4">
+                        <h4>ČLANSTVO</h4>
+                        <p>Učlanjenje</p>
+                        <p>Bonus kartice</p>
+                        <p>Popusti</p>
+                    </div>
+                    <div class="col4">
+                        <h4>KONTAKT</h4>
+                        <P>Kontaktiraj nas</P>
+                        <p>Lokacije</p>
+                        <p>Mail</p>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+             
+
+                <div id="footer-2">
+                    <h3>Pratite nas na:</h3>
+                    <div>
+                        <p><a href="https://www.facebook.com/" target="_blank">Facebook</a></p>
+                        <p><a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
+                        <p><a href="https://www.youtube.com/"  target="_blank">YouTube</a></p>
+                    </div>
+                </div>
+
+                <div id="footer-3">
+                 Copyright &copy; 2021 DraganaAndjelkovic. All rights reserved.
+                </div>
+
+            </div>
+    </div>
+
+    <script src="javascripts/loadxml-film.js"></script> 
+    <script src="javascripts/loadlogin.js"></script> 
+
+
+</body>
+</html>
